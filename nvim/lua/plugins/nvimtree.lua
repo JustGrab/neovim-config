@@ -9,8 +9,12 @@ return {
 			filters = {
 				dotfiles = true, -- Show hidden files (dotfiles)
 			},
+			update_focused_file = {
+				enable = true,
+				update_root = true,
+			},
 			view = {
-				adaptive_size = true,
+                width = 35
 			},
 		})
 	end,

@@ -5,6 +5,7 @@ vim.opt.scrolloff = 10 -- Keep 10 lines above/below cursor
 vim.opt.sidescrolloff = 8 -- Keep 8 columns left/right of cursor
 vim.opt.wrap = false -- Dont wrap lines
 vim.opt.cmdheight = 1 -- Command line height
+vim.opt.spell = true
 vim.opt.spelllang = { "en" } -- Langauge for spell check
 
 -- Tabbing / Indentation
@@ -47,7 +48,7 @@ vim.opt.writebackup = false -- Don't backup before overwriting
 vim.opt.swapfile = false -- Don't create swap files
 vim.opt.undofile = true -- Persistent undo
 vim.opt.updatetime = 300 -- Time in ms to trigger CursorHold
-vim.opt.timeoutlen = 500 -- Time in ms to wait for mapped sequence
+vim.opt.timeoutlen = 400 -- Time in ms to wait for mapped sequence
 vim.opt.ttimeoutlen = 0 -- No wait for key code sequences
 vim.opt.autoread = true -- Auto-reload file if changed outside
 vim.opt.autowrite = false -- Don't auto-save on some events
@@ -96,4 +97,8 @@ vim.opt.foldlevel = 99 -- Keep all folds open by default
 -- Split Behavior
 vim.opt.splitbelow = true -- Horizontal splits open below
 vim.opt.splitright = true -- Vertical splits open to the right
+
+
+-- Lsp
+vim.lsp.inlay_hint.enable(true)
 

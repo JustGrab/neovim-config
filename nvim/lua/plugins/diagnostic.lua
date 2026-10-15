@@ -26,7 +26,7 @@ return {
                 arrow = "NonText",             -- Highlight for the arrow pointing to diagnostic
                 background = "CursorLine",     -- Background highlight for diagnostics
                 mixing_color = "Normal",       -- Color to blend background with (or "None")
-            },
+           },
 
             -- List of filetypes to disable the plugin for
             disabled_ft = {},
@@ -34,7 +34,7 @@ return {
             options = {
                 -- Display the source of diagnostics (e.g., "lua_ls", "pyright")
                 show_source = {
-                    enabled = false,           -- Enable showing source names
+                    enabled = true,           -- Enable showing source names
                     if_many = false,           -- Only show source if multiple sources exist for the same diagnostic
                 },
 
@@ -51,7 +51,7 @@ return {
                 -- Throttle update frequency in milliseconds to improve performance
                 -- Higher values reduce CPU usage but may feel less responsive
                 -- Set to 0 for immediate updates (may cause lag on slow systems)
-                throttle = 20,
+                throttle = 100,
 
                 -- Minimum number of characters before wrapping long messages
                 softwrap = 30,
@@ -69,14 +69,14 @@ return {
                 -- Settings for multiline diagnostics
                 multilines = {
                     enabled = false,           -- Enable support for multiline diagnostic messages
-                    always_show = false,       -- Always show messages on all lines of multiline diagnostics
+                    always_show = true,       -- Always show messages on all lines of multiline diagnostics
                     trim_whitespaces = false,  -- Remove leading/trailing whitespace from each line
                     tabstop = 4,               -- Number of spaces per tab when expanding tabs
-                    severity = nil,            -- Filter multiline diagnostics by severity (e.g., { vim.diagnostic.severity.ERROR })
-                  },
+                    severity = {},            -- Filter multiline diagnostics by severity (e.g., { vim.diagnostic.severity.ERROR })
+                },
 
                 -- Show all diagnostics on the current cursor line, not just those under the cursor
-                show_all_diags_on_cursorline = false,
+                show_all_diags_on_cursorline = true,
 
                 -- Only show diagnostics when the cursor is directly over them, no fallback to line diagnostics
                 show_diags_only_under_cursor = false,
@@ -121,9 +121,9 @@ return {
                 -- Remove severities you don't want to display
                 severity = {
                     vim.diagnostic.severity.ERROR,
-                    -- vim.diagnostic.severity.WARN,
-                    -- vim.diagnostic.severity.INFO,
-                    -- vim.diagnostic.severity.HINT,
+                    vim.diagnostic.severity.WARN,
+                    vim.diagnostic.severity.INFO,
+                    vim.diagnostic.severity.HINT,
                 },
 
                 -- Events that trigger attaching diagnostics to buffers

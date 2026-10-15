@@ -3,27 +3,41 @@ return {
         "zaldih/themery.nvim",
         lazy = false,
         config = function()
-        require("themery").setup({
-            themes = {{
-                name = "VS Code",
-                colorscheme = "vscode",
-              },
-              {
-                name = "Carbon Fox",
-                colorscheme = "carbonfox",
-              },
-              {
-                name = "Warmer",
-                colorscheme = "onedark",
-              }
-          },
+            require("themery").setup({
+                themes = {{
+                    name = "VSCode",
+                    colorscheme = "vscode",
+                },
+                {
+                    name = "VSCode Modern Dark",
+                    colorscheme = "vscode_modern",
+                },
+                {
+                    name = "Carbon Fox",
+                    colorscheme = "carbonfox",
+                },
+                {
+                    name = "Midnight",
+                    colorscheme = "midnight",
+                },
+                {
+                    name = "Warmer",
+                    colorscheme = "onedark",
+                },
+                {
+                    name = "Arctic Dark",
+                    colorscheme = "arctic",
+                },
+
+            }
         })
-        end
-    },
-     -- One dark Theme
+    end
+},
+-- One dark Theme
     {
         "navarasu/onedark.nvim",
-        priority = 1000, -- make sure to load this before all the other start plugins
+        lazy = true,
+        priority = 1001, -- make sure to load this before all the other start plugins
         config = function()
         require('onedark').setup {
             style = 'darker'
@@ -48,12 +62,28 @@ return {
             style = 'dark',
 
             -- Color overrides (optional)
-            color_overrides = {},
-      
+            color_overrides = {
+                vscLineNumber = '#FFFFFF',
+            }, 
             -- Group overrides (optional)
             group_overrides = {},
         })
         end
+    },
+
+    -- Vscode Modern Dark
+    {
+        "gmr458/vscode_modern_theme.nvim",
+        lazy = true,
+        priority = 1002,
+        config = function()
+            require("vscode_modern").setup({
+                cursorline = true,
+                transparent_background = false,
+                nvim_tree_darker = true,
+            })
+            vim.cmd.colorscheme("vscode_modern")
+        end,
     },
 
     -- Nightfox Theme
@@ -77,16 +107,22 @@ return {
     end
     },
 
-    -- Onedark Theme
+    -- Midnight
+    { 
+        'dasupradyumna/midnight.nvim', 
+        lazy = true, 
+        priority = 1003,
+        config = function()
+            require('midnight').setup {
+            }
+            require('midnight').load()
+        end
+    },
+    
+    -- Arctic V2
     {
-      "navarasu/onedark.nvim",
-      lazy = true,
-      priority = 1000, -- make sure to load this before all the other start plugins
-      config = function()
-        require('onedark').setup {
-          style = 'warmer'
-        }
-        require('onedark').load()
-      end
+        "rockyzhang24/arctic.nvim",
+        dependencies = { "rktjmp/lush.nvim" }
     }
+    
 }
